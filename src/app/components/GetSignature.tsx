@@ -34,6 +34,29 @@ export default function GetSignature() {
   );
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    const ws = new WebSocket("http://localhost:3001"); // WebSocket server URL
+
+    ws.onopen = function () {
+      console.log("WebSocket connected");
+    };
+
+    ws.onmessage = function (event) {
+      console.log("EVENT ", event);
+      if (event.data === "fetchSignatureData") {
+        fetchSignatureData();
+      }
+    };
+
+    ws.onclose = function () {
+      console.log("WebSocket disconnected");
+    };
+
+    return () => {
+      ws.close(); // Cleanup WebSocket connection
+    };
+  }, []);
+
   const fetchSignatureData = async () => {
     try {
       const response = await fetch("/api/signature");

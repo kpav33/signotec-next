@@ -24,7 +24,6 @@
 //   }
 // }
 
-import { NextResponse } from "next/server";
 // For testing without having to make new signatures on signing pad
 let testData = {
   command: "TOKEN_CMD_SIGNATURE_SIGN_DATA",
@@ -46,6 +45,8 @@ let testData = {
       "MIIDCTCCAfGgAwIBAgIFA34VJcYwDQYJKoZIhvcNAQELBQAwRjEWMBQGA1UEChMNc2lnbm90ZWMgR21iSDEsMCoGA1UEAxMjc2lnbm90ZWMgR2FtbWEgRGV2aWNlIElEOjE1MDAwMjE3MDMwHhcNMTgwNzEwMDAwMDAwWhcNNDkxMjMxMDAwMDAwWjBGMRYwFAYDVQQKEw1zaWdub3RlYyBHbWJIMSwwKgYDVQQDEyNzaWdub3RlYyBHYW1tYSBEZXZpY2UgSUQ6MTUwMDAyMTcwMzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOWcTr2GNdu6bsDIaJ08Oum+xhdYEHhyE2iKr3GLpEoz68yoja862OYjZLZlgzg5hD4ZY97uEq4vp/m4Sud1oRGoi8C8PTWnpZ8iSnjKVZz9vXA24G+i4T0cETCv9ScEhYc4IRnPLdRtAQZikyMsQHb4pWEFcNPtAacTyB098iEzQzGQp1V1sDq19kHBrdu3qcsJXK3nTE3IEIgtD4/Iypb2V6N2cHZIMknC3Vj22cNt6afh6FAGB3QyBOAAwZlLNX3Y59bPZHEJgCn+3JCPEY1VRWkkDDi0wagEexUzf39UBrdrSNVdlot0tSODBWuQo7hcipO4QMr0wPRsBvln60UCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAQdaiT/0/IbQMFi403VAvmZaiq/FUqu/+CXe1ZrX6/OGiHBazhaZaeooez5xxG5yXACAKR23/o/Ose1pltBq3EMwzz9UJFtnqMBkAxzfK48N3yuUI4sTbtYUZYGLe3QDIsHuAFskjLgMHvHR0QssPv1DV7fFHMea8qYIVz4pIgAqP0+90S7ll8RjaOkTtH0VDVyjj1uMff+0J5cW8ryU+64HobMtJ/pe0tkFIB9uHIPQx7T5I5+ZfLfrLwOa/RPtT4kSUwmdduYSRpsKg+sje46o/sKfO/+j2H2MiVmaOSIA4gSCioh/hxw8pIF9Q0O1/knWhY5G3PVp1O/Nm3VyO8A==",
   },
 };
+
+import { NextResponse } from "next/server";
 
 // In-memory storage for simplicity, we would need to store this in database for production?
 // Un-comment when not testing
