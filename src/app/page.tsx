@@ -1,5 +1,6 @@
 import React from "react";
-import Signature from "./components/Signature";
+// import Signature from "./components/Signature";
+import GetSignature from "./components/GetSignature";
 
 // signotec st-gert-3-u100
 // https://en.signotec.com/hardware/signature-pads/signotec-gamma/
@@ -43,7 +44,8 @@ export default function Home() {
   return (
     <main>
       <div>Hello World!</div>
-      <Signature />
+      {/* <Signature /> */}
+      <GetSignature />
     </main>
   );
 }
