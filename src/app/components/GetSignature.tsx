@@ -2,11 +2,29 @@
 
 import { useState, useEffect } from "react";
 
+// interface SignatureData {
+//   countedPoints?: number;
+//   rsaSignature?: string;
+//   certId?: string;
+//   signData?: string;
+// }
+
 interface SignatureData {
-  countedPoints?: number;
-  rsaSignature?: string;
+  command: string;
+  returnCode: number;
+  signData: string;
   certId?: string;
-  signData?: string;
+  rsaSignature?: string;
+  signatureImage?: {
+    command: string;
+    returnCode: number;
+    file: string;
+  };
+  signatureCert?: {
+    command: string;
+    returnCode: number;
+    file: string;
+  };
 }
 
 export default function GetSignature() {
@@ -42,6 +60,11 @@ export default function GetSignature() {
         <div>
           <h2>Signature Data:</h2>
           <pre>{JSON.stringify(signatureData, null, 2)}</pre>
+          <img
+            id="Signature_0"
+            alt="Signature 0"
+            src={`data:image/png;base64,${signatureData?.signatureImage?.file}`}
+          />
         </div>
       )}
     </div>

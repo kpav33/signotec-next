@@ -31,9 +31,11 @@ let signatureDataStore: any = null;
 
 export async function POST(request: any) {
   try {
-    const { signatureData } = await request.json();
+    // const { signatureData } = await request.json();
+    const { data } = await request.json();
     // Store the signature data
-    signatureDataStore = signatureData;
+    // signatureDataStore = signatureData;
+    signatureDataStore = data;
     return NextResponse.json({
       message: "Signature data received successfully",
     });
