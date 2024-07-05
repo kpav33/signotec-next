@@ -43,7 +43,8 @@ export default function GetSignature() {
 
     ws.onmessage = function (event) {
       console.log("EVENT ", event);
-      if (event.data === "fetchSignatureData") {
+      if (event.data === "newDataAvailable") {
+        // console.log("FETCH");
         fetchSignatureData();
       }
     };
@@ -57,9 +58,29 @@ export default function GetSignature() {
     };
   }, []);
 
+  //   const fetchSignatureData = async () => {
+  //     try {
+  //       const response = await fetch("/api/signature");
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setSignatureData(data.signatureData);
+  //         setError(null);
+  //       } else {
+  //         setError("No signature data available");
+  //         setSignatureData(null);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching signature data:", error);
+  //       setError("Failed to fetch signature data");
+  //       setSignatureData(null);
+  //     }
+  //   };
+
+  // This way seems to work ok, so we have a separate express server and a web socket connection between the express server and the Next.js app, so everytime there is a new signature the app gets notified and gets the updated signature data
   const fetchSignatureData = async () => {
+    // console.log("FETCHING");
     try {
-      const response = await fetch("/api/signature");
+      const response = await fetch("http://localhost:3001/api/signature");
       if (response.ok) {
         const data = await response.json();
         setSignatureData(data.signatureData);
